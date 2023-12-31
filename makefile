@@ -1,5 +1,5 @@
 CXX = ccache g++
-OUTPUT_FILE=bin/apnaNodeJS
+OUTPUT_FILE=bin/MyOwnNodeJS
 
 define INCLUDE
 	v8/include/
