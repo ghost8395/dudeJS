@@ -27,12 +27,8 @@ export LIB
 export OBJ
 export APP
 
-examples=\
-  cpp-native-threads\
-  uv-threads\
-  uv-timers\
-  v8-print-hello
 
+# will replace all the variable on line number 37 such as APP OBJ(executable monolith for v8 and libuv) INCLUDE(including header for v8) INCLUDEUV(including header for libuv) OUTPUT_FILE(path for output file)
 # will output the exectuable to ./bin folder
 build:
 	npm i -g nodemon --silent
@@ -40,10 +36,9 @@ build:
 	mkdir -p bin
 	$(CXX) $$APP -I $$INCLUDE -I $$INCLUDEUV  -std=c++17 -pthread -o $$OUTPUT_FILE -DV8_COMPRESS_POINTERS $$OBJ -Wl,--no-as-needed -ldl
 
-# make uv-threads (or any from examples)
-$(examples): % : examples/%.cpp
-	mkdir -p bin
-	$(CXX) -I $$INCLUDE -I $$INCLUDEUV  -std=c++17 -pthread -o bin/$@  $< -DV8_COMPRESS_POINTERS $$OBJ -Wl,--no-as-needed -ldl
-	./bin/$@
+# watches all the files with cc,h,js,cpp,hpp for changes sand rebuilds the project
+run:
+	nodemon -e cc,h,js,cpp,hpp --exec "make && ./bin/myOwnNodeJS index.js
+
 clean:
 	rm -rf bin
