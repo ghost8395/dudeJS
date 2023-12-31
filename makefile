@@ -1,5 +1,5 @@
 CXX = ccache g++
-OUTPUT_FILE=bin/MyOwnNodeJS
+OUTPUT_FILE=bin/myOwnNodeJS
 
 define INCLUDE
 	v8/include/
