@@ -36,9 +36,12 @@ build:
 	mkdir -p bin
 	$(CXX) $$APP -I $$INCLUDE -I $$INCLUDEUV  -std=c++17 -pthread -o $$OUTPUT_FILE -DV8_COMPRESS_POINTERS $$OBJ -Wl,--no-as-needed -ldl
 
+recompile:
+	$(CXX) $$APP -I $$INCLUDE -I $$INCLUDEUV  -std=c++17 -pthread -o $$OUTPUT_FILE -DV8_COMPRESS_POINTERS $$OBJ -Wl,--no-as-needed -ldl
+	
 # watches all the files with cc,h,js,cpp,hpp for changes sand rebuilds the project
 run:
-	nodemon -e cc,h,js,cpp,hpp --exec "make && ./bin/myOwnNodeJS index.js
+	nodemon -e cc,h,js,cpp,hpp --exec "make recompile && ./bin/myOwnNodeJS index.js"
 
 clean:
 	rm -rf bin
