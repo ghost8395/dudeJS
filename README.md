@@ -10,8 +10,8 @@ I have created my own JavaScript Runtime using V8, Libuv, and more. dudeJS is a 
 - I have created my own implimentation of `setTimeOut` as its not part of ECMA, its something that we build on top of v8. I'm calling it `relaxAndDoItLaterDude` and it takes `sleep`, `interval` and a callback method as an argument.
 
 ## How to run and try these things
-- You can skip all the hastle of dependancy installation and use the [Gitpod snapshot](). Its like running my VS code in cloud. You need to login with your github account. Dont worry its free 😅
-- Click HERE 👉 [Gitpod snapshot]()
+- You can skip all the hastle of dependancy installation and use the [Gitpod snapshot](https://gitpod.io#snapshot/b2764759-2f5f-4c71-a69a-748155040914). Its like running my VS code in cloud. You need to login with your github account. Dont worry its free 😅
+- Click HERE 👉 [Gitpod snapshot](https://gitpod.io#snapshot/b2764759-2f5f-4c71-a69a-748155040914)
 - Run `make build` and then run `make run`
 - navigate to `index.js` where I have left few examples to play with.
 - `make run` internally runs `nodemon -e cc,h,js,cpp,hpp --exec "make recompile && ./bin/dudeJS index.js"` watches all the files with cc,h,js,cpp,hpp and recompiles the project
