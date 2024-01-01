@@ -4,7 +4,7 @@
 
 #include "./fs.hpp"
 #include "./util.hpp"
-#include "./relaxAndDoItDude.hpp"
+#include "./relaxAndDoItLaterDude.hpp"
 
 uv_loop_t *DEFAULT_LOOP = uv_default_loop();
 
@@ -114,8 +114,8 @@ public:
         // initialize the loop with default loop
         timer.Initialize(DEFAULT_LOOP);
 
-        // Bind the global 'relaxAndDoItDude' function to the C++ RelaxAndDoItDude callback.
-        global->Set(isolate, "relaxAndDoItDude", v8::FunctionTemplate::New(isolate, timer.RelaxAndDoItDude));
+        // Bind the global 'relaxAndDoItLaterDude' function to the C++ RelaxAndDoItLaterDude callback.
+        global->Set(isolate, "relaxAndDoItLaterDude", v8::FunctionTemplate::New(isolate, timer.RelaxAndDoItLaterDude));
 
         // Create a new context.
         this->context = v8::Context::New(this->isolate, NULL, global);
