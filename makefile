@@ -1,5 +1,5 @@
 CXX = ccache g++
-OUTPUT_FILE=bin/myOwnNodeJS
+OUTPUT_FILE=bin/dudeJS
 
 define INCLUDE
 	v8/include/
@@ -41,7 +41,7 @@ recompile:
 	
 # watches all the files with cc,h,js,cpp,hpp for changes sand rebuilds the project
 run:
-	nodemon -e cc,h,js,cpp,hpp --exec "make recompile && ./bin/myOwnNodeJS index.js"
+	nodemon -e cc,h,js,cpp,hpp --exec "make recompile && ./bin/dudeJS index.js"
 
 clean:
 	rm -rf bin

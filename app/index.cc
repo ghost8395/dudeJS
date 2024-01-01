@@ -1,17 +1,17 @@
 #include "v8.h"
 
-#include "./src/myOwnNodeJS.hpp"
+#include "./src/dudeJS.hpp"
 
 int main(int argc, char *argv[])
 {
     char *filename = argv[1];
-    auto *myOwnNodeJS = new MyOwnNodeJS();
+    auto *dudeJS = new DudeJS();
     std::unique_ptr<v8::Platform> platform =
-        myOwnNodeJS->initializeV8(argc, argv);
+        dudeJS->initializeV8(argc, argv);
 
-    myOwnNodeJS->initializeVM();
-    myOwnNodeJS->InitializeProgram(filename);
-    myOwnNodeJS->Shutdown();
+    dudeJS->initializeVM();
+    dudeJS->InitializeProgram(filename);
+    dudeJS->Shutdown();
 
     return 0;
 }

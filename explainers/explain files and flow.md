@@ -8,7 +8,7 @@
 Build stage will replace all the variable on line number 37 such as APP OBJ(executable monolith for v8 and libuv) INCLUDE(including header for v8) INCLUDEUV(including header for libuv) OUTPUT_FILE(path for output file) and will output the exectuable to ./bin folder. Also contains command for clean which just deletes bin
 
 ## Explain `make run` and nodemon
-`nodemon -e cc,h,js,cpp,hpp --exec "make recompile && ./bin/myOwnNodeJS index.js"` watches all the files with cc,h,js,cpp,hpp and recompiles the project
+`nodemon -e cc,h,js,cpp,hpp --exec "make recompile && ./bin/dudeJS index.js"` watches all the files with cc,h,js,cpp,hpp and recompiles the project
 
 ## Explain v8 folder
 We have monolith for v8 which we have generated and have copied headers in include. These are refereces for functions which are in binary. So in make file you are just using these headers. i.e. $$OBJ
@@ -44,7 +44,7 @@ like you can see here on line no 46 we are binding Print function with `"print"`
 with `initializeVM` what we do is we are creating context and create an isolated env to run our code safely.
 
 After this we run `InitializeProgram` and pass fileName which is first argument like when we run `node index.js`, we actually pass the `index.js` as a first argument
-![Alt text](./images/image-3.png)
+![Alt text](./images/image-2MainInitializeProgram.png)
 
 ![Alt text](./images/image-4.png)
 

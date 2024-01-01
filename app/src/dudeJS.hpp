@@ -7,7 +7,7 @@
 
 uv_loop_t *DEFAULT_LOOP = uv_default_loop();
 
-class MyOwnNodeJS
+class DudeJS
 {
 private:
     v8::Isolate *isolate;
