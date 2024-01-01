@@ -43,8 +43,8 @@ Mostly the flow of program is like this..
   - ![Alt text](./images/image-2MainInitializeProgram.png)
 
 
-- ![Alt text](./images/create%20scope%20and%20create%20global%20object.png)
-  - In `InitializeProgram` we create scope and create `global` object, to which we attatch our custom method to like we did here with `sayThatDude`
-  - ![Alt text](/images/imageExecuteScriptAndWaitForEvents.png)
+- In `InitializeProgram` we create scope and create `global` object, to which we attatch our custom method to like we did here with `sayThatDude`
+  - ![Alt text](./images/create%20scope%20and%20create%20global%20object.png)
+  - ![Alt text](./images/imageExecuteScriptAndWaitForEvents.png)
   - then we execute script i.e. `ExecuteScriptAndWaitForEvents`/ where we parse the file, compile it and run it. Then we wait for events 
   - in `WaitForEvents` we do nothing but start the event loop. `uv_run` does nothing but runs the event loop.
