@@ -52,10 +52,10 @@
       - ![Alt text](./images/explain-relaxAndDoItLaterDude/image-36.png)
     - Now if we run below example in index.js ![Alt text](./images/explain-relaxAndDoItLaterDude/image-37.png)
     - It will call the actual call back function that we send![Alt text](./images/explain-relaxAndDoItLaterDude/image-38.png)
-    - We can run nested examples as well like these ![Alt text](./images/explain-relaxAndDoItLaterDude/image-39.png)
+    - We can run nested examples as well like these ![Alt text](cimage-39.png)
 
 
 ## We can create our own setTimeout
 - `setTimeout` is nothing but `relaxAndDoItLaterDude` with 0 interval. So defination looks like this
 - `setInterval` is nothign but sleep of 0 
-- ![Alt text](./images/explain-relaxAndDoItLaterDude/image-40.png)
+- ![Alt text](./images/explain-relaxAndDoItLaterDude/imagesetTimeout.png)

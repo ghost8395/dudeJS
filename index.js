@@ -26,3 +26,8 @@ relaxAndDoItLaterDude(sleep, interval, () => {
     })
 })
 // #endregionS
+
+// #region setTimeout and setInterval implemntation with relaxAndDoItDude example
+const setTimeout = (ms, cb) => relaxAndDoItLaterDude(ms, 0, cb);
+const setInterval = (ms, cb) => relaxAndDoItLaterDude(0, ms, cb);
+// #endregionS
