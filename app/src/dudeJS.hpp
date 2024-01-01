@@ -51,7 +51,7 @@ private:
         }
     }
 
-    static void Print(const v8::FunctionCallbackInfo<v8::Value> &args)
+    static void SayThatDude(const v8::FunctionCallbackInfo<v8::Value> &args)
     {
 
         bool first = true;
@@ -104,8 +104,8 @@ public:
         // Create a template for the global object.
         v8::Local<v8::ObjectTemplate> global = v8::ObjectTemplate::New(isolate);
 
-        // Bind the global 'print' function to the C++ Print callback.
-        global->Set(isolate, "print", v8::FunctionTemplate::New(isolate, Print));
+        // Bind the global 'sayThatDude' function to the C++ SayThatDude callback.
+        global->Set(isolate, "sayThatDude", v8::FunctionTemplate::New(isolate, SayThatDude));
 
         // Create a new context.
         this->context = v8::Context::New(this->isolate, NULL, global);

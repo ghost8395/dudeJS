@@ -1,12 +1,12 @@
-print('+++++++++++++++++++++++++++++++++++++++')
-print('This is from index.js')
+sayThatDude('+++++++++++++++++++++++++++++++++++++++')
+sayThatDude('This is from index.js')
 
-// #region Print example
+// #region SayThatDude example
 for (let count = 0; count < 10; count++) {
-    print('printing count from custom function', count)
+    sayThatDude('printing count from custom function', count)
 }
 // #endregion
 
-// #region Print example
+// #region SayThatDude example
 
 // #endregion

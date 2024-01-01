@@ -26,19 +26,19 @@ void ReportException(v8::Isolate *isolate, v8::TryCatch *try_catch)
     }
     else
     {
-        // Print (filename):(line number): (message).
+        // SayThatDude (filename):(line number): (message).
         v8::String::Utf8Value filename(isolate,
                                        message->GetScriptOrigin().ResourceName());
         v8::Local<v8::Context> context(isolate->GetCurrentContext());
         const char *filename_string = ToCString(filename);
         int linenum = message->GetLineNumber(context).FromJust();
         fprintf(stderr, "%s:%i: %s\n", filename_string, linenum, exception_string);
-        // Print line of source code.
+        // SayThatDude line of source code.
         v8::String::Utf8Value sourceline(
             isolate, message->GetSourceLine(context).ToLocalChecked());
         const char *sourceline_string = ToCString(sourceline);
         fprintf(stderr, "%s\n", sourceline_string);
-        // Print wavy underline (GetUnderline is deprecated).
+        // SayThatDude wavy underline (GetUnderline is deprecated).
         int start = message->GetStartColumn(context).FromJust();
         for (int i = 0; i < start; i++)
         {

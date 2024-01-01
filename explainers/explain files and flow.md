@@ -25,34 +25,26 @@ Copied some utilities from https://github.com/v8/v8/blob/master/samples/shell.cc
 ## Explain app/src/fs.hpp
 Copied from https://github.com/v8/v8/blob/master/samples/shell.cc for reading files. Why do we read files cause we read files like index.js or whatever files we pass and eval i.e. execute the file. The copied method reads file in synchronous manner.
 
-Mostly the flow of program is like this.. First we initialize V8, create scope, create context and then execute file i.e. 
-Suppose the outlined portion is the converted file.
-![Alt text](./images/image.png)
 
-so what happens behind scene is that file is kind of put into eval('the content of files') and executes it
+## Initialization flow 
 
-Then it compiles it and execute and gets the result
+Mostly the flow of program is like this.. 
+- First we initialize V8, create scope, create context and then execute file i.e. 
+  - Suppose the outlined portion is the converted file. ![Alt text](./images/image.png)
+  - so what happens behind scene is that file is kind of put into eval('the content of files') and executes it
+  - Then it compiles it and execute and gets the result
+- So while creating context we do this ![Alt text](./images/imageBindingWithCPPFunctions.png)
+  - like you can see here on line no 107 we are binding SayThatDude function with `"sayThatDude"` so whenever v8 sees `sayThatDude` in js and it invokes `'SayThatDude'` of c++
 
-So while creating context we do this 
+- ![Alt text](./images/image-2.png)
+  - with `initializeVM` what we do is we are creating context and create an isolated env to run our code safely.
 
-![Alt text](./images/image-1.png)
+- After `initializeVM` we run `InitializeProgram` and pass fileName which is first argument like when we run `node index.js`, we actually pass the `index.js` as a first argument
+  - ![Alt text](./images/image-2MainInitializeProgram.png)
 
-like you can see here on line no 46 we are binding Print function with `"print"` so whenever v8 sees `print` in js and it invokes `'Print'` of c++
 
-
-![Alt text](./images/image-2.png)
-with `initializeVM` what we do is we are creating context and create an isolated env to run our code safely.
-
-After this we run `InitializeProgram` and pass fileName which is first argument like when we run `node index.js`, we actually pass the `index.js` as a first argument
-![Alt text](./images/image-2MainInitializeProgram.png)
-
-![Alt text](./images/image-4.png)
-
-In InitializeProgram we create scope and 
-
-![Alt text](./images/image-5.png)
-create `global` object, to which we attatch our custom method to like we did here with print
-
-then we execute script i.e. `ExecuteScriptAndWaitForEvents`/ where we parse the file, compile it and run it. Then we wait for events 
-![Alt text](./images/image-6.png)
-in `WaitForEvents` we do nothing but start the event loop. `uv_run` does nothing but runs the event loop.
+- ![Alt text](./images/create%20scope%20and%20create%20global%20object.png)
+  - In `InitializeProgram` we create scope and create `global` object, to which we attatch our custom method to like we did here with `sayThatDude`
+  - ![Alt text](/images/imageExecuteScriptAndWaitForEvents.png)
+  - then we execute script i.e. `ExecuteScriptAndWaitForEvents`/ where we parse the file, compile it and run it. Then we wait for events 
+  - in `WaitForEvents` we do nothing but start the event loop. `uv_run` does nothing but runs the event loop.
