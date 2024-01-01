@@ -4,6 +4,7 @@
 
 #include "./fs.hpp"
 #include "./util.hpp"
+#include "./relaxAndDoItDude.hpp"
 
 uv_loop_t *DEFAULT_LOOP = uv_default_loop();
 
@@ -106,6 +107,15 @@ public:
 
         // Bind the global 'sayThatDude' function to the C++ SayThatDude callback.
         global->Set(isolate, "sayThatDude", v8::FunctionTemplate::New(isolate, SayThatDude));
+
+        // timer instantiate
+        Timer timer;
+
+        // initialize the loop with default loop
+        timer.Initialize(DEFAULT_LOOP);
+
+        // Bind the global 'relaxAndDoItDude' function to the C++ RelaxAndDoItDude callback.
+        global->Set(isolate, "relaxAndDoItDude", v8::FunctionTemplate::New(isolate, timer.RelaxAndDoItDude));
 
         // Create a new context.
         this->context = v8::Context::New(this->isolate, NULL, global);
