@@ -12,7 +12,19 @@ I have created my own JavaScript Runtime using V8, Libuv, and more. dudeJS is a 
 ## How to run and try these things
 - You can skip all the hastle of dependancy installation and use the [Gitpod snapshot](https://gitpod.io#snapshot/b2764759-2f5f-4c71-a69a-748155040914). Its like running my VS code in cloud. You need to login with your github account. Dont worry its free 😅
 - Click HERE 👉 [Gitpod snapshot](https://gitpod.io#snapshot/b2764759-2f5f-4c71-a69a-748155040914)
+- Signing in step
+- 
+https://github.com/ghost8395/dudeJS/assets/56686391/f02c6bdf-edc8-4528-8a34-e3e5ed2e6bc0
+
+- open snapshot
+
+https://github.com/ghost8395/dudeJS/assets/56686391/66891d32-5c98-4c82-aa61-24bd4f9173d7
+
 - Run `make build` and then run `make run`
+
+https://github.com/ghost8395/dudeJS/assets/56686391/8bcac816-e9e0-487b-ad28-56579b40ad99
+
+
 - navigate to `index.js` where I have left few examples to play with.
 - `make run` internally runs `nodemon -e cc,h,js,cpp,hpp --exec "make recompile && ./bin/dudeJS index.js"` watches all the files with cc,h,js,cpp,hpp and recompiles the project
 
