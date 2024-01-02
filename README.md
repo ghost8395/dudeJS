@@ -2,7 +2,7 @@
   <img src="https://github.com/ghost8395/dudeJS/assets/56686391/c7713b9a-b388-40b4-a069-ab28621004da" />
 </p>
 
-I have created my own JavaScript Runtime using V8, Libuv, and more. dudeJS is a JavaScript runtime built on top of [V8 Javascript Engine](https://github.com/v8/v8) and [Libuv](https://github.com/libuv/libuv). This repo is about recreating the mighty Node.js from Scratch using V8, Libuv, and C++
+Introducing dudeJS, my very own JavaScript Runtime! Powered by the incredible V8 Javascript Engine and Libuv, this runtime is a labor of love. With a foundation built on V8, Libuv, and C++, I've set out to recreate the powerful Node.js from scratch. Join me on this exciting journey as we dive deep into the world of JavaScript runtime development.
 
 
 ## What I have built
@@ -27,6 +27,7 @@ https://github.com/ghost8395/dudeJS/assets/56686391/8bcac816-e9e0-487b-ad28-5657
 
 - navigate to `index.js` where I have left few examples to play with.
 - `make run` internally runs `nodemon -e cc,h,js,cpp,hpp --exec "make recompile && ./bin/dudeJS index.js"` watches all the files with cc,h,js,cpp,hpp and recompiles the project
+- `index.js` is the file where you can utilize the function that I have created and play around with it.. Be careful though its very awesome.😁
 
 ### Running on local
 - For running on local you need to compile the binaries by yourself. I have left the instructions in `explainers\explain create binaries yourself.md`
@@ -37,11 +38,14 @@ https://github.com/ghost8395/dudeJS/assets/56686391/8bcac816-e9e0-487b-ad28-5657
 
 
 ## Why I have created this
-- I wanted to create a nodejs platform from scratch, compile the libraries and write the C++ source code myself to confirm whether the nodejs concepts I learned were correct (they weren't 😂). This was very necessary as there's a lot of content for beginners but not so much for advanced/deep learning. Building Node.js from scratch really helped me wash away many misconceptions and gain a deeper level of understanding of how node actually even works.
-
-- Ever wondered why there are so many javascript runtimes popping up suddenly recently such as Bun, Deno, cloudfare workers, and so on? This has become so popular that to an extent there is a community that provides a space for JS runtimes to collaborate on API interoperability which is https://wintercg.org/ .
+- You see, I've always had this burning desire to dive deep into NodeJS and truly understand its inner workings. I wanted to go beyond the beginner level and explore the advanced concepts. So, I decided to create my own NodeJS platform from scratch.
+- I started by compiling the necessary libraries and writing the C++ source code myself. Let me tell you, it was no easy task. Along the way, I realized that some of the concepts I had learned about NodeJS were actually misconceptions. But hey, that's all part of the learning process, right? 😂
+- Building NodeJS from scratch allowed me to gain a deeper level of understanding. I got to see firsthand how NodeJS works and how it extends the behavior of V8, the JavaScript runtime. It's fascinating to think about all the different JavaScript runtimes out there, like Bun, Deno, and Cloudflare workers. They all create their own JS runtimes from scratch, each with their own unique twist. This has become so popular that to an extent there is a community that provides a space for JS runtimes to collaborate on API interoperability which is https://wintercg.org/ .
 - Nodejs is just a proxy for v8 that extends its behavior. So that extension of the behavior is where the difference lies and that's why so many JS runtimes. To build nodejs it is important to understand what nodejs is in the first place. We all know that V8 is responsible for interpreting your code and executing it but it does more than that, it converts your JS code into C++ object instances. And that is one of the things which I have tried doing it. Interesting fact is that neither console.log, setTimeout nor setInterval part of JS specs, JS only knows ECMA.
 - As part of this project I have tried implementing these functionalities.
-  - Such as for console.log, the `sayThatDude`. So whenever we call this function from js file the engine will take it as a JS function and call the C++ function that we have written for it. And that is how the things Crypto, FS, Child processes are only exists in Nodejs, they are implemented on top of V8. That's where runtimes Bun & Deno excel as they handle stuff like this differently.
-  - I have created `relaxAndDoItLaterDude` which takes `sleep`, `interval` and a callback method as an argument. Functions like setTimeout, setInterval, and setImmidiate are not part of JS and as they are async in nature they handled by whole another library i.e. libuv. This library is mainly responsible for Async functions, Child Processes, Threads, Timers, & Event Loop. Libuv enables us to run these functions in the background and call the callback function we provided once done.
-  
+  - - For instance, consider the usage of console.log, the `sayThatDude` function. Whenever we invoke this function from a JavaScript file, the engine recognizes it as a JavaScript function and executes the corresponding C++ function. This is how functionalities like Crypto, FS, and Child processes exist solely in Node.js, as they are built on top of the V8 engine. However, when it comes to runtimes like Bun and Deno, they excel in handling such tasks in a distinct manner.
+  - I've developed a function called `relaxAndDoItLaterDude` that accepts parameters such as `sleep`, `interval`, and a callback method. Unlike JavaScript's built-in functions like setTimeout, setInterval, and setImmediate, which are asynchronous in nature, they are actually handled by a separate library called libuv. This powerful library, known for its capabilities in handling async functions, child processes, threads, timers, and event loops, allows us to run these functions in the background and execute the provided callback function once they are completed.
+
+
+
+
