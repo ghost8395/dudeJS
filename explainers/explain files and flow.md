@@ -48,3 +48,5 @@ Mostly the flow of program is like this..
   - ![Alt text](./images/imageExecuteScriptAndWaitForEvents.png)
   - then we execute script i.e. `ExecuteScriptAndWaitForEvents`/ where we parse the file, compile it and run it. Then we wait for events 
   - in `WaitForEvents` we do nothing but start the event loop. `uv_run` does nothing but runs the event loop.
+
+

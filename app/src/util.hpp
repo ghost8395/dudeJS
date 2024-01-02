@@ -61,3 +61,4 @@ void ReportException(v8::Isolate *isolate, v8::TryCatch *try_catch)
         }
     }
 }
+

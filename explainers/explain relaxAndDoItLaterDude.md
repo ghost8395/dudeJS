@@ -59,3 +59,4 @@
 - `setTimeout` is nothing but `relaxAndDoItLaterDude` with 0 interval. So defination looks like this
 - `setInterval` is nothign but sleep of 0 
 - ![Alt text](./images/explain-relaxAndDoItLaterDude/imagesetTimeout.png)
+

@@ -5,3 +5,4 @@ JS doesnt have console.log  its something that is provided by node in case of se
 
 - we are binding this c++ custom `SayThatDude` function with js `sayThatDude` keyword here  
   - ![Alt text](./images/explain-sayThatDude/image-1.png)
+  - 
